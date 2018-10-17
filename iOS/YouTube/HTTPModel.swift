@@ -2,6 +2,7 @@
 //  NetworkModel.swift
 
 import Foundation
+import Alamofire
 
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
@@ -147,6 +148,22 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
         }
         
         print("Network Monitoring \t | \(self.requestMethod ?? "") \t | \(self.requestURL ?? "") \t | Time Interval : \(interval)ms")
+        let mymethod = self.requestMethod ?? ""
+        let myurl = self.requestURL ?? ""
+        Alamofire.request(
+            "http://localhost:3000/api/v1/hooking",
+            method: .get,
+            parameters: ["method": mymethod, "url":myurl],
+            encoding: URLEncoding.default,
+            headers: ["Content-Type":"application/json", "Accept":"application/json"]
+            )
+            .validate(statusCode: 200..<300)
+            .responseJSON {
+                response in
+                if let JSON = response.result.value {
+                    //print(JSON)
+                }
+        }
         
         return requestDictionary
     }

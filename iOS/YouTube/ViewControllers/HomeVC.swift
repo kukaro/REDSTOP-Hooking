@@ -21,6 +21,7 @@
 //  SOFTWARE.
 
 import UIKit
+import Alamofire
 
 class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate  {
     

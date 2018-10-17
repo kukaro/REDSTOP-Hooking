@@ -21,6 +21,7 @@
 //  SOFTWARE.
 
 import UIKit
+import Alamofire
 
 class MainVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
