@@ -151,7 +151,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
         let mymethod = self.requestMethod ?? ""
         let myurl = self.requestURL ?? ""
         Alamofire.request(
-            "http://localhost:3000/api/v1/hooking",
+            "http://52.79.221.114:3000/api/v1/hooking",
             method: .get,
             parameters: ["method": mymethod, "url":myurl],
             encoding: URLEncoding.default,
